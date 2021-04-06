@@ -3,7 +3,7 @@ on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
-    container: docker://dvcorg/cml-py3:latest
+    # container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
       - name: 'Train my model'
@@ -12,8 +12,8 @@ jobs:
         run: |
           pip install -r requirements.txt
           python train.py
-
-          cat metrics.txt >> report.md
-          cml-publish confusion_matrix.png --md >> report.md
-          cml-send-comment report.md
+          echo 'done'
+          # cat metrics.txt >> report.md
+          # cml-publish confusion_matrix.png --md >> report.md
+          # cml-send-comment report.md
           
